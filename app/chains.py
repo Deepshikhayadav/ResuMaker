@@ -36,7 +36,7 @@ class Chain:
                      proj, edu, other):
         prompt_email = PromptTemplate.from_template(
             """
-           ### Instruction for Generating a Resume Response
+            Generate a structured and professional resume for the role of {role}, incorporating the following details:
 
             #### Objective:
             To create a well-structured and professional resume for a specific {role}, incorporating the individual's professional experience, skills, achievements, and other relevant details. The resume should align with industry standards and highlight the candidate's strengths.
@@ -48,7 +48,6 @@ class Chain:
             4. List of significant projects {proj} completed, with brief descriptions.
             5. Personal interests relevant to the role or industry.
             6. Contact information ({email}, {phone}).
-
             #### Output Structure:
             The generated resume must include the following sections:
             1. **Header**: Candidate's name {name} and title {role}.
@@ -58,71 +57,48 @@ class Chain:
             5. **Skills**: Categorized list of technical and professional skills {skill}.
             6. **Projects**: Highlights of key projects, mentioning technologies used and outcomes {proj}.
             7. **Other details**: Relevant activities that showcase the candidate's engagement with the industry or technical community {other}.
-
             #### Formatting Guidelines:
             - Use professional language and avoid grammatical errors.
             - Present information concisely, ensuring clarity and readability.
             - Use bullet points for responsibilities, skills, and achievements.
             - Align the formatting to emphasize important details like roles, skills, and accomplishments.
-
             #### Example Output:
             The generated resume must look similar to the following format:
-
             **[Name]**
-
             **[Title/Role]**
-
             **Contact Information**  
             Email: [Candidate's Email Address]  
             Phone: [Candidate's Phone Number]  
             LinkedIn: [Candidate's LinkedIn Profile]  
             GitHub: [Candidate's GitHub Profile]  
-
             ---
-
             **Professional Summary**  
             [A brief paragraph summarizing the candidate's expertise, experience, and core competencies.]
-
             ---
-
             **Professional Experience**  
             **[Role]**  
             **[Company Name]**  
-            *[Start Date – End Date]*  
+           
             - [Responsibility/Accomplishment #1]  
             - [Responsibility/Accomplishment #2]  
-
             (Repeat for each role in reverse chronological order)
-
             ---
-
             **Skills**  
             [List of categorized technical and professional skills.]
-
             ---
-
             **Achievements**  
             [List of notable achievements or awards.]
-
             ---
-
             **Education**  
             **[Degree Name]**  
             [University Name], [Year of Graduation]  
             - Relevant Coursework: [Course #1], [Course #2]  
-
             ---
-
             **Projects**  
             - **[Project Name]:** [Brief description including technologies and outcomes.]
 
-            ---
 
-            #### Notes:
-            - Personalize the resume for the specific role or industry.
-            - Highlight achievements and skills most relevant to the job requirements.
-
-            ### EMAIL (NO PREAMBLE):
+        Generate the output strictly adhering to the provided structure without any preamble or concluding remarks.
 
             """
         )
